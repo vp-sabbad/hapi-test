@@ -4,11 +4,16 @@ module.exports = function(grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
-            src: ['*.js']
+            files: ['*.js']
+        },
+        watch: {
+            files: ['<%= jshint.files %>'],
+            tasks: ['jshint']
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', ['jshint']);
 };
