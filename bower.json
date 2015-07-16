@@ -1,0 +1,20 @@
+{
+    "name": "hapi-test",
+    "main": "index.js",
+    "version": "0.0.0",
+    "homepage": "https://github.com/Yuioup/hapi-test",
+    "authors": [
+        "Moni Ghaoui <mghaoui@gmail.com>"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "handlebars": "~3.0.3"
+    }
+}

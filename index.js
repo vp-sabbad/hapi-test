@@ -15,4 +15,12 @@ server.route({
     }
 });
 
+server.views({
+    engines: {
+        html: require('handlebars')
+    },
+    path: Path.join(__dirname, 'templates')
+});
+
+
 module.exports = server;
