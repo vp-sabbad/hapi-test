@@ -14,3 +14,5 @@ server.route({
         reply('Hello, world!');
     }
 });
+
+module.exports = server;
