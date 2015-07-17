@@ -16,6 +16,7 @@
     ],
     "dependencies": {
         "handlebars": "~3.0.3",
-        "handlebars-layouts": "~3.1.0"
+        "handlebars-layouts": "~3.1.0",
+        "bootstrap": "~3.3.5"
     }
 }
