@@ -1,4 +1,9 @@
+var Path = require('path');
 var Hapi = require('hapi');
+var Handlebars = require(Path.join(__dirname, 'bower_components/handlebars/handlebars.js'));
+var Layouts = require(Path.join(__dirname, 'bower_components/handlebars-layouts/dist/handlebars-layouts.js'));
+
+Layouts.register(Handlebars);
 
 var server = new Hapi.Server();
 server.connection({ port: 3000 });
@@ -11,16 +16,16 @@ server.route({
     method: 'GET',
     path: '/',
     handler: function(request, reply) {
-        reply('Hello, world!');
+        reply.view('index', { person: 'dude!' });
     }
 });
 
 server.views({
     engines: {
-        html: require('handlebars')
+        html: Handlebars
     },
-    path: Path.join(__dirname, 'templates')
+    path: Path.join(__dirname, 'templates'),
+    partialsPath: Path.join(__dirname, 'layouts')
 });
-
 
 module.exports = server;
