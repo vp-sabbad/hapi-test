@@ -16,7 +16,6 @@ gulp.task('watch', function() {
     nodemon({
         script: Path.resolve('index.js'),
         ext: 'js html',
-        tasks: ['jshint']
+        tasks: ['jshint'] // doesn't work on Windows
     });
-    //.on('restart', 'jshint');
 });
