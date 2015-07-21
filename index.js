@@ -1,3 +1,5 @@
+// jshint node:true
+
 var Path = require('path');
 var Hapi = require('hapi');
 var Handlebars = require(Path.join(__dirname, 'bower_components/handlebars/handlebars.js'));
