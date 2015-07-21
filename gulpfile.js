@@ -3,17 +3,20 @@
 var Path = require('path');
 
 var gulp = require('gulp'),
-    jshint = require('gulp-jshint');
+    jshint = require('gulp-jshint'),
+    nodemon = require('gulp-nodemon');
 
-gulp.task('default', function() {
+gulp.task('jshint', function() {
     return gulp.src('*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
-gulp.task('server:start', function(callback) {
-    var server = require(Path.resolve('index.js'));
-    server.start(function() {
-        callback();
+gulp.task('watch', function() {
+    nodemon({
+        script: Path.resolve('index.js'),
+        ext: 'js html',
+        tasks: ['jshint']
     });
+    //.on('restart', 'jshint');
 });
