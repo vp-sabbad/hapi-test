@@ -32,7 +32,7 @@ gulp.task('watch:test', function() {
         exec: "nodeunit test/test.js",
         ext: 'js html',
         tasks: ['jshint', 'test'],
-        delay: 1.0 
+        delay: 3.0 
     });
 });
 

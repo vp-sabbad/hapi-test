@@ -9,7 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "hapi": "^8.8.0"
+    "hapi": "^8.8.0",
+    "hapi-sequelized": "^2.1.5",
+    "sequelize": "^3.5.1",
+    "sqlite3": "^3.0.9"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
