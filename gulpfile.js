@@ -8,21 +8,31 @@ var gulp = require('gulp'),
     nodeunit = require('gulp-nodeunit');
 
 gulp.task('jshint', function() {
-    return gulp.src('*.js')
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'));
+    return gulp.src('index.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
 });
 
 gulp.task('test', function () {
-    gulp.src('test.js')
-        .pipe(nodeunit());
+    gulp.src('test/test.js')
+    .pipe(nodeunit());
 });
 
-gulp.task('watch', function() {
+gulp.task('watch:server', function() {
     nodemon({
         script: Path.resolve('index.js'),
         ext: 'js html',
-        tasks: ['jshint', 'test'] // doesn't work on Windows
+        tasks: ['jshint'],
+        delay: 1.0 
+    });
+});
+
+gulp.task('watch:test', function() {
+    nodemon({
+        exec: "nodeunit test/test.js",
+        ext: 'js html',
+        tasks: ['jshint', 'test'],
+        delay: 1.0 
     });
 });
 

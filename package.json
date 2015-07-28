@@ -15,7 +15,6 @@
     "gulp": "^3.9.0",
     "gulp-jshint": "^1.11.2",
     "gulp-nodemon": "^2.0.3",
-    "gulp-nodeunit": "0.0.5",
-    "nodeunit": "^0.9.1"
+    "gulp-nodeunit": "0.0.5"
   }
 }
