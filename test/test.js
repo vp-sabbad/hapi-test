@@ -1,12 +1,26 @@
 // jshint node:true
 
-exports.testSomething = function(test){
-    test.expect(1);
-    test.ok(true, "this assertion should pass");
-    test.done();
-};
+module.exports = {
+    setUp: function(callback) {
+        this.server = require("../"); // ../index.js
+        callback();
+    },
+    tearDown: function(callback) {
+        this.server.stop(function() {
+            console.log("Server stopped");
+            callback();
+        });
+    },
+    testSomething: function(test) {
+        console.log("testSomething");
+        var options = {
+            method: "GET",
+            url: "/"
+        };
 
-//exports.testSomethingElse = function(test){
-//    test.ok(false, "this assertion should fail");
-//    test.done();
-//};
+        this.server.inject(options, function(response) {
+            test.equal(response.statusCode, 200);
+            test.done();
+        });
+    }
+};

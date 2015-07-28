@@ -10,10 +10,6 @@ Layouts.register(Handlebars);
 var server = new Hapi.Server();
 server.connection({ port: 3000 });
 
-server.start(function() {
-    console.log('Server running at:', server.info.uri);
-});
-
 server.route({
     method: 'GET',
     path: '/',
@@ -55,6 +51,10 @@ server.register(
             var db = server.plugins['hapi-sequelized'].db;
             db.sequelize.sync({force: true}).then(function() {
                 console.log('models synced');
+            });
+
+            server.start(function() {
+                console.log('Server running at:', server.info.uri);
             });
         }
     }
